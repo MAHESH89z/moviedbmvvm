@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/default_layout_padding"
+        tools:context=".MainActivity">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/movieThumbnailCardView"
+            android:layout_width="130dp"
+            android:layout_height="156dp"
+            app:cardCornerRadius="@dimen/card_view_corner_radius"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imgMovieThumbnail"
+                android:layout_width="127dp"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/movie_poster"
+                android:scaleType="fitXY" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="130dp" />
+
+        <TextView
+            android:id="@+id/MovieTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/movie_title"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/movie_title_text_20_size"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteY="5dp" />
+
+        <TextView
+            android:id="@+id/MovieReleaseDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="release_date"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="15dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/MovieTitle" />
+
+        <TextView
+            android:id="@+id/MovieOverview"
+            android:layout_width="248dp"
+            android:layout_height="102dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:maxEms="15"
+            android:maxLines="4"
+            android:text="overview"
+            android:textColor="@android:color/darker_gray"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/MovieReleaseDate" />
+
+        <ImageView
+            android:id="@+id/imgAddMovieToFavourite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_baseline_heart"
+            app:layout_constraintEnd_toStartOf="@+id/guideline3"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/MovieTitle"
+            android:contentDescription="favorite" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="16dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
