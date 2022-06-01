@@ -4,13 +4,10 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.logituit.moviedbmvvm.R
 import com.logituit.moviedbmvvm.databinding.ItemViewBinding
-import com.logituit.mvvm.models.Result
 import com.logituit.mvvm.models.ResultX
 
 class Myadapter1(val context: Context, val MoviesList: ArrayList<ResultX>) : RecyclerView.Adapter<Myadapter1.MyViewHolder>(){

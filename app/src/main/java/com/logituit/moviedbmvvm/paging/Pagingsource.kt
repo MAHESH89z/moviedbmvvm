@@ -1,13 +1,11 @@
 package com.logituit.moviedbmvvm.paging
 
-import androidx.constraintlayout.helper.widget.Flow
 import androidx.paging.*
 import com.logituit.moviedbmvvm.api.QuoteService
-import com.logituit.moviedbmvvm.repository.NETWORK_PAGE_SIZE
-import com.logituit.mvvm.models.Result
+import com.logituit.moviedbmvvm.models.Result
 
 
-class Pagingsource(private val quoteService: QuoteService):PagingSource<Int,Result>() {
+class Pagingsource(private val quoteService: QuoteService):PagingSource<Int, Result>() {
     override fun getRefreshKey(state: PagingState<Int, Result>): Int? {
         return state.anchorPosition?.let { anchorPosition->
             val anchorPage=state.closestPageToPosition(anchorPosition)

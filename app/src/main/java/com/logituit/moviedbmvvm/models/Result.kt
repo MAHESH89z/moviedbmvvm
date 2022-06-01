@@ -1,8 +1,13 @@
-package com.logituit.mvvm.models
+package com.logituit.moviedbmvvm.models
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "quote")
 data class Result(
     val adult: Boolean,
     val backdrop_path: String,
+    @PrimaryKey(autoGenerate = true)
     val id: Int,
     val original_language: String,
     val original_title: String,

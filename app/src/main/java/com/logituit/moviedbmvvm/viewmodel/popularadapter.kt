@@ -9,17 +9,25 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.logituit.moviedbmvvm.R
 import com.logituit.moviedbmvvm.databinding.ItemViewBinding
-import com.logituit.mvvm.models.Result
+import com.logituit.moviedbmvvm.models.Result
+import javax.inject.Inject
 
-class popularadapter: PagingDataAdapter<Result, popularadapter.MyViewHolder>(DiffUtilCallBack()) {
+class popularadapter @Inject constructor (private val onClick: (Result) -> Unit): PagingDataAdapter<Result, popularadapter.MyViewHolder>(DiffUtilCallBack()) {
 
 
-    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class MyViewHolder(itemView: View,val onClick: (Result) -> Unit) : RecyclerView.ViewHolder(itemView) {
         private val binding = ItemViewBinding.bind(itemView)
         private var currentMovieDetails: Result? = null
         val poster=binding.image
         // val poster: ImageView = itemView.findViewById(R.id.image)
         // val name: TextView = itemView.findViewById(R.id.text)
+        init {
+            binding.container.setOnClickListener{
+                currentMovieDetails?.let{
+                    onClick(it)
+                }
+            }
+        }
         fun bind(movieDetails: Result) {
             currentMovieDetails = movieDetails
             binding.text.text = movieDetails.title
@@ -37,7 +45,7 @@ class popularadapter: PagingDataAdapter<Result, popularadapter.MyViewHolder>(Dif
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val inflater=
             LayoutInflater.from(parent.context).inflate(R.layout.item_view,parent,false)
-        return MyViewHolder(inflater)
+        return MyViewHolder(inflater,onClick)
     }
 
 }

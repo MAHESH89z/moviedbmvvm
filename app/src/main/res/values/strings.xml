@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MovieDbMVVM</string>
+    <string name="movie_poster" />
+    <string name="movie_title" />
 </resources>

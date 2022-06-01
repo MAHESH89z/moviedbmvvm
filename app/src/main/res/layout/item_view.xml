@@ -10,7 +10,8 @@
         android:layout_height="173dp"
 
         android:layout_marginEnd="10dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:id="@+id/container">
 
         <ImageView
             android:id="@+id/image"

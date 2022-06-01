@@ -4,24 +4,20 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.logituit.moviedbmvvm.R
 import com.logituit.moviedbmvvm.databinding.ItemViewBinding
-import com.logituit.mvvm.models.QuoteList
-import com.logituit.mvvm.models.Result
-import com.logituit.mvvm.models.ResultX
+import com.logituit.moviedbmvvm.models.Result
 
 
-class Myadapter(val context: Context, val MoviesList: ArrayList<Result>) :RecyclerView.Adapter<Myadapter.MyViewHolder>(){
+class Myadapter(val context: Context, val MoviesList: ArrayList<Result>, private val onClick: (Result) -> Unit) :RecyclerView.Adapter<Myadapter.MyViewHolder>(){
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view =
             LayoutInflater.from(context).inflate(R.layout.item_view, parent, false)
-        return MyViewHolder(view)
+        return MyViewHolder(view,onClick)
 
     }
 
@@ -37,12 +33,20 @@ class Myadapter(val context: Context, val MoviesList: ArrayList<Result>) :Recycl
     override fun getItemCount(): Int {
         return MoviesList.size
     }
-    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class MyViewHolder(itemView: View,val onClick: (Result) -> Unit) : RecyclerView.ViewHolder(itemView) {
         private val binding = ItemViewBinding.bind(itemView)
         private var currentMovieDetails: Result? = null
         val poster=binding.image
        // val poster: ImageView = itemView.findViewById(R.id.image)
        // val name: TextView = itemView.findViewById(R.id.text)
+       init {
+           binding.text.setOnClickListener{
+currentMovieDetails?.let{
+    onClick(it)
+}
+           }
+               }
+
        fun bind(movieDetails: Result) {
            currentMovieDetails = movieDetails
            binding.text.text = movieDetails.title

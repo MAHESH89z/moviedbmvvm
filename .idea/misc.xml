@@ -3,7 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/User/AndroidStudioProjects/MovieDbMVVM/app/src/main/res/drawable/ic__234.xml" value="0.1" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MovieDbMVVM/app/src/main/res/drawable/ic_baseline_heart.xml" value="0.1" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MovieDbMVVM/app/src/main/res/drawable/ic_baseline_star_24.xml" value="0.135" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MovieDbMVVM/app/src/main/res/layout/activity_main.xml" value="0.13496376811594202" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MovieDbMVVM/app/src/main/res/layout/details.xml" value="0.13179347826086957" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MovieDbMVVM/app/src/main/res/layout/details_view.xml" value="0.1796875" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MovieDbMVVM/app/src/main/res/layout/details_view_fragment.xml" value="0.11979166666666667" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MovieDbMVVM/app/src/main/res/layout/item_view.xml" value="0.13496376811594202" />
       </map>
     </option>
